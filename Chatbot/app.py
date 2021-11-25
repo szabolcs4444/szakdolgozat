@@ -67,7 +67,7 @@ def analyzer():
         elif (question.lower() in thanks_inputs):
             return jsonify({'thanks': random.choice(thanks_responses)})
         else:
-            doc = codecs.open('books/english.txt.', 'r', 'UTF-8').read()
+            doc = codecs.open('textextract/english.txt.', 'r', 'UTF-8').read()
             passage_retriever.fit(doc)
             passages = passage_retriever.most_similar(question)
             answers = answer_extractor.extract(question, passages)
